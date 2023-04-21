@@ -5,6 +5,7 @@
     "build": {
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "test": {},
     "lint": {},
     "dev": {
       "cache": false,
