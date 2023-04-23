@@ -1,7 +1,7 @@
-import { Suspense } from 'react'
 import getComments from 'lib/getComments'
 import getPost from 'lib/getPost'
-import Comments from '../components/Comments'
+import PostCard from '../components/PostCard'
+import Comments from './components/Comments'
 
 type Params = {
   params: {
@@ -11,19 +11,15 @@ type Params = {
 
 const Post = async ({ params: { postId } }: Params) => {
   const post: Promise<Post> = getPost(postId)
-  const comments: Promise<Comment[]> = getComments(postId)
+  const comments: Promise<PostComment[]> = getComments(postId)
 
-  const postData = await post
+  const [postData, commentsData] = await Promise.all([post, comments])
 
   return (
-    <article key={postData.id}>
-      <h3>{postData.title}</h3>
-      <br />
-      <Suspense fallback={<h2>Loading...</h2>}>
-        {/* @ts-expect-error Server Component */}
-        <Comments promise={comments} />
-      </Suspense>
-    </article>
+    <>
+      <PostCard post={postData} />
+      <Comments comments={commentsData} />
+    </>
   )
 }
 

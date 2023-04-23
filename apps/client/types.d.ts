@@ -5,7 +5,7 @@ type Post = {
   body: string
 }
 
-type Comment = {
+type PostComment = {
   postId: number
   id: number
   name: string
