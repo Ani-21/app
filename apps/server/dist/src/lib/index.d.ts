@@ -34,4 +34,4 @@ export interface IUser {
         bs: string;
     };
 }
-//# sourceMappingURL=Interface.d.ts.map
+//# sourceMappingURL=index.d.ts.map

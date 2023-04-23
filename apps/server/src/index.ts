@@ -10,8 +10,21 @@ app.get('/', (req, res) => {
 
 app.get('/api/posts', async (req, res) => {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts`)
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data: IPost[] = await response.json()
+    res.json(data)
+  } catch (err) {
+    throw new Error()
+  }
+})
+
+app.get('/api/posts/:id', async (req, res) => {
+  try {
+    const postId = req.params.id
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${postId}`,
+    )
+    const data: IPost = await response.json()
     res.json(data)
   } catch (err) {
     throw new Error()
@@ -34,6 +47,18 @@ app.get('/api/posts/:id/comments', async (req, res) => {
 app.get('/api/users', async (req, res) => {
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users`)
+    const data: IUser[] = await response.json()
+    res.json(data)
+  } catch (err) {
+    throw new Error()
+  }
+})
+app.get('/api/users/:id', async (req, res) => {
+  try {
+    const userId = req.params.id
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`,
+    )
     const data: IUser[] = await response.json()
     res.json(data)
   } catch (err) {
