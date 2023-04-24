@@ -16,10 +16,7 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const PORT = 8080;
 app.get('/', (req, res) => {
-    res.send('My server');
-});
-app.get('/api/v1', (req, res) => {
-    res.send('server');
+    res.send('Posts App Server');
 });
 app.get('/api/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -28,7 +25,7 @@ app.get('/api/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.json(data);
     }
     catch (err) {
-        console.log(err);
+        throw new Error();
     }
 }));
 app.get('/api/posts/:id/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -39,7 +36,7 @@ app.get('/api/posts/:id/comments', (req, res) => __awaiter(void 0, void 0, void 
         res.json(data);
     }
     catch (err) {
-        console.log(err);
+        throw new Error();
     }
 }));
 app.get('/api/users', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -49,30 +46,39 @@ app.get('/api/users', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.json(data);
     }
     catch (err) {
-        console.log(err);
+        throw new Error();
     }
 }));
 app.get('/api/users/:id/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userId = Number(req.params.id);
-        const responsePosts = yield fetch(`https://jsonplaceholder.typicode.com/posts`);
+        const responsePosts = yield fetch('http://localhost:8080/api/posts');
         const dataPosts = yield responsePosts.json();
         const userPosts = dataPosts.filter(item => item.userId === userId);
         res.json(userPosts);
     }
     catch (err) {
-        console.log(err);
+        throw new Error();
     }
 }));
 app.get('/api/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const response = yield fetch(`https://jsonplaceholder.typicode.com/comments`);
+        const response = yield fetch('https://jsonplaceholder.typicode.com/comments');
         const data = yield response.json();
         res.json(data);
     }
     catch (err) {
-        console.log(err);
+        throw new Error();
     }
 }));
-app.listen(PORT, () => console.log('start listening on port', PORT));
+app.post('/api/comments', (req, res) => {
+    try {
+        const data = req.body;
+        res.send(JSON.stringify(data));
+    }
+    catch (err) {
+        throw new Error();
+    }
+});
+app.listen(PORT);
 //# sourceMappingURL=index.js.map
