@@ -5,18 +5,18 @@ type CommentCardProps = {
 }
 
 const CommentCard = ({ comment }: CommentCardProps) => (
-  <li className="pb-3 sm:pb-4">
-    <div className="flex items-center space-x-4">
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-          {comment.name}
-        </p>
-        <p className="text-sm text-gray-500 truncate dark:text-gray-400">
+  <article className="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
+    <footer className="flex justify-between items-center mb-2">
+      <div className="flex items-center">
+        <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+          <img className="mr-2 w-6 h-6 rounded-full" alt={comment.name} />
           {comment.email}
         </p>
       </div>
-    </div>
-  </li>
+    </footer>
+    <p className="text-lg text-gray-600 dark:text-gray-400">{comment.name}</p>
+    <p className="text-gray-500 dark:text-gray-400">{comment.body}</p>
+  </article>
 )
 
 export default CommentCard
