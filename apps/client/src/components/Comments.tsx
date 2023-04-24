@@ -1,10 +1,10 @@
 import FormComment from '@src/components/FormComment'
-import CommentCard from './CommentCard'
+import CommentCard from './cards/Comment'
 
 type Props = {
   comments: PostComment[]
 }
-const CommentsSection = ({ comments }: Props) => (
+const Comments = ({ comments }: Props) => (
   <section className="bg-white dark:bg-gray-900 py-8 lg:py-16">
     <div className="max-w-2xl mx-auto px-4">
       <div className="flex justify-between items-center mb-6">
@@ -22,4 +22,4 @@ const CommentsSection = ({ comments }: Props) => (
   </section>
 )
 
-export default CommentsSection
+export default Comments

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import getAllPosts from 'lib/getAllPosts'
-import PostList from './components/PostList'
+import Posts from '../../components/Posts'
 
 const PostsPage = async () => {
   const posts: Promise<Post[]> = getAllPosts()
@@ -12,7 +12,7 @@ const PostsPage = async () => {
         <Link href="/">Back to Home Page</Link>
       </p>
       <br />
-      <PostList postsList={postsData} />
+      <Posts postsList={postsData} />
     </section>
   )
 }

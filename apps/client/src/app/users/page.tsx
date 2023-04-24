@@ -1,6 +1,6 @@
 import getAllUsers from 'lib/getAllUsers'
 import Link from 'next/link'
-import Users from './components/Users'
+import Users from 'src/components/Users'
 
 const UsersPage = async () => {
   const users: Promise<User[]> = getAllUsers()

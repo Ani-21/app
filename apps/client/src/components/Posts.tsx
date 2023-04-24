@@ -1,4 +1,4 @@
-import PostCard from './PostCard'
+import PostCard from './cards/Post'
 
 type PostListProps = {
   postsList: Post[]

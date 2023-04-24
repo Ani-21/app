@@ -1,8 +1,8 @@
 import getComments from 'lib/getComments'
 import getPost from 'lib/getPost'
 import Link from 'next/link'
-import PostCard from '../components/PostCard'
-import CommentsSection from './components/Comments'
+import PostCard from 'src/components/cards/Post'
+import Comments from 'src/components/Comments'
 
 type Params = {
   params: {
@@ -23,7 +23,7 @@ const Post = async ({ params: { postId } }: Params) => {
       </p>
       <br />
       <PostCard post={postData} />
-      <CommentsSection comments={commentsData} />
+      <Comments comments={commentsData} />
     </>
   )
 }
