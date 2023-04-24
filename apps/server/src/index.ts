@@ -1,8 +1,11 @@
 import express from 'express'
 import { IComment, IPost, IUser } from './lib'
+import { logger } from './middlewares/logEvents'
 
 const app = express()
 const PORT = 8080
+
+app.use(logger)
 
 app.get('/', (req, res) => {
   res.send('Posts App Server')
@@ -40,6 +43,15 @@ app.get('/api/posts/:id/comments', async (req, res) => {
     const data: IComment[] = await response.json()
     res.json(data)
   } catch (err: unknown) {
+    throw new Error()
+  }
+})
+
+app.post('/api/posts/:id/comments', (req, res) => {
+  try {
+    const data: IComment = req.body
+    res.send(JSON.stringify(data))
+  } catch (err) {
     throw new Error()
   }
 })
@@ -88,15 +100,6 @@ app.get('/api/comments', async (req, res) => {
     )
     const data: IComment[] = await response.json()
     res.json(data)
-  } catch (err) {
-    throw new Error()
-  }
-})
-
-app.post('/api/comments', (req, res) => {
-  try {
-    const data: IComment = req.body
-    res.send(JSON.stringify(data))
   } catch (err) {
     throw new Error()
   }
