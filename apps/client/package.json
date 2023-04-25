@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint src --fix"
   },
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "next": "latest",
     "react": "18.2.0",
@@ -18,12 +19,12 @@
   "devDependencies": {
     "@types/node": "^18.15.13",
     "@types/react": "^18.0.37",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.14",
     "config": "*",
     "eslint": "^8.5.0",
     "next-transpile-modules": "^9.0.0",
-    "postcss": "^8.4.4",
-    "tailwindcss": "^3.0.0",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.1",
     "tsconfig": "*",
     "typescript": "^5.0.4"
   }
