@@ -1,11 +1,15 @@
 import express from 'express'
+import cors from 'cors'
 import { IComment, IPost, IUser } from './lib'
 import { logger } from './middlewares/logEvents'
+import { options } from './config/allowedOrigins'
 
 const app = express()
 const PORT = 8080
 
 app.use(logger)
+app.use(cors(options))
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send('Posts App Server')

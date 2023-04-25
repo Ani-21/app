@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint src --fix"
   },
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "next": "latest",
     "react": "18.2.0",

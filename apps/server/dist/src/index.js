@@ -13,10 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const logEvents_1 = require("./middlewares/logEvents");
+const allowedOrigins_1 = require("./config/allowedOrigins");
 const app = (0, express_1.default)();
 const PORT = 8080;
 app.use(logEvents_1.logger);
+app.use((0, cors_1.default)(allowedOrigins_1.options));
+app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.send('Posts App Server');
 });
