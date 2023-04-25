@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import UserPhotoIcon from '../icons/UserPhoto'
 
 type UserCardProps = {
   user: User
@@ -8,7 +9,7 @@ const UserCard = ({ user }: UserCardProps) => (
   <li className="py-3 sm:py-4">
     <div className="flex items-center space-x-4">
       <div className="flex-shrink-0">
-        <img className="w-8 h-8 rounded-full" alt="User" />
+        <UserPhotoIcon />
       </div>
       <div className="flex-1 min-w-0">
         <Link href={`/users/${user.id}`}>

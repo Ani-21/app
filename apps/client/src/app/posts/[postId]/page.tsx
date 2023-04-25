@@ -1,7 +1,12 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+
 import getComments from 'lib/getComments'
 import getPost from 'lib/getPost'
-import PostCard from '../components/PostCard'
-import Comments from './components/Comments'
+import Link from 'next/link'
+import PostCard from 'src/components/cards/Post'
+import Comments from 'src/components/Comments'
 
 type Params = {
   params: {
@@ -9,17 +14,38 @@ type Params = {
   }
 }
 
-const Post = async ({ params: { postId } }: Params) => {
-  const post: Promise<Post> = getPost(postId)
-  const comments: Promise<PostComment[]> = getComments(postId)
+const Post = ({ params: { postId } }: Params) => {
+  const [post, setPost] = useState<Post>(null)
+  const [comments, setComments] = useState<PostComment[]>(null)
 
-  const [postData, commentsData] = await Promise.all([post, comments])
+  const fetchData = async () => {
+    try {
+      const [postData, commentsData] = await Promise.all([
+        getPost(postId),
+        getComments(postId),
+      ])
+      setPost(postData)
+      setComments(commentsData)
+    } catch (err) {
+      throw new Error()
+    }
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [postId])
+
+  if (!post) return <p>Loading ... </p>
 
   return (
-    <>
-      <PostCard post={postData} />
-      <Comments comments={commentsData} />
-    </>
+    <article className="max-w-sm rounded-lg overflow-hidden my-4">
+      <p>
+        <Link href="/posts">Got Back to Posts</Link>
+      </p>
+      <br />
+      <PostCard post={post} />
+      <Comments comments={comments} />
+    </article>
   )
 }
 

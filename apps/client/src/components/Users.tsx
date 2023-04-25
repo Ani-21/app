@@ -1,4 +1,4 @@
-import UserCard from './UserCard'
+import UserCard from './cards/User'
 
 type UsersProps = {
   usersData: User[]

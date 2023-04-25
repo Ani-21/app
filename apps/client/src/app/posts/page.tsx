@@ -1,18 +1,33 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+
 import Link from 'next/link'
 import getAllPosts from 'lib/getAllPosts'
-import PostList from './components/PostList'
+import Posts from 'src/components/Posts'
 
-const PostsPage = async () => {
-  const posts: Promise<Post[]> = getAllPosts()
+const PostsPage = () => {
+  const [posts, setPosts] = useState<Post[]>(null)
 
-  const postsData = await posts
+  const fetchData = async () => {
+    const postsData: Promise<Post[]> = await Promise.resolve(getAllPosts())
+    // @ts-ignore
+    setPosts(postsData)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  if (!posts) return <p>Loading ... </p>
+
   return (
     <section>
       <p>
         <Link href="/">Back to Home Page</Link>
       </p>
       <br />
-      <PostList postsList={postsData} />
+      <Posts postsList={posts} />
     </section>
   )
 }

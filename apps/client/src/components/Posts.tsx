@@ -1,9 +1,9 @@
-import PostCard from './PostCard'
+import PostCard from './cards/Post'
 
 type PostListProps = {
   postsList: Post[]
 }
-const PostList = ({ postsList }: PostListProps) => (
+const Post = ({ postsList }: PostListProps) => (
   <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
     {postsList.map(post => (
       <PostCard post={post} />
@@ -11,4 +11,4 @@ const PostList = ({ postsList }: PostListProps) => (
   </ul>
 )
 
-export default PostList
+export default Post
