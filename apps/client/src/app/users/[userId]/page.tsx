@@ -36,7 +36,7 @@ const User = ({ params: { userId } }: Params) => {
 
   return (
     <article
-      className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4"
+      className="max-w-sm rounded-lg overflow-hidden my-4"
       key={user?.id}
     >
       <Link href="/users">Back to users</Link>

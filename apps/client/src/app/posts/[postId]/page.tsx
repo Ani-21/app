@@ -38,14 +38,14 @@ const Post = ({ params: { postId } }: Params) => {
   if (!post) return <p>Loading ... </p>
 
   return (
-    <>
+    <article className="max-w-sm rounded-lg overflow-hidden my-4">
       <p>
         <Link href="/posts">Got Back to Posts</Link>
       </p>
       <br />
       <PostCard post={post} />
       <Comments comments={comments} />
-    </>
+    </article>
   )
 }
 

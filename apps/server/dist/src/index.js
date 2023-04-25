@@ -56,15 +56,28 @@ app.get('/api/posts/:id/comments', (req, res) => __awaiter(void 0, void 0, void 
         throw new Error();
     }
 }));
-app.post('/api/posts/:id/comments', (req, res) => {
+app.post('/api/posts/:id/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const postId = req.params.id;
         const data = req.body;
-        res.send(JSON.stringify(data));
+        const response = yield fetch(`https://jsonplaceholder.typicode.com/comments`, {
+            method: 'POST',
+            body: JSON.stringify({
+                postId,
+                name: 'Test User',
+                email: 'test@gmail.com',
+                body: data,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        res.status(201).json(response);
     }
     catch (err) {
         throw new Error();
     }
-});
+}));
 app.get('/api/users', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield fetch(`https://jsonplaceholder.typicode.com/users`);

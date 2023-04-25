@@ -1,4 +1,5 @@
 import React from 'react'
+import UserPhotoIcon from '../icons/UserPhoto'
 
 type CommentCardProps = {
   comment: PostComment
@@ -9,7 +10,7 @@ const CommentCard = ({ comment }: CommentCardProps) => (
     <footer className="flex justify-between items-center mb-2">
       <div className="flex items-center">
         <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-          <img className="mr-2 w-6 h-6 rounded-full" alt={comment.name} />
+          <UserPhotoIcon />
           {comment.email}
         </p>
       </div>
