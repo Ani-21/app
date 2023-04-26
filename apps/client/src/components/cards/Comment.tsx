@@ -1,4 +1,3 @@
-import React from 'react'
 import UserPhotoIcon from '../icons/UserPhoto'
 
 type CommentCardProps = {

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const MenuIcon = () => (
   <svg
     className="fill-current h-3 w-3"
