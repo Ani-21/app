@@ -24,15 +24,23 @@ app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.send('Posts App Server');
 });
-app.get('/api/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/tink', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const response = yield fetch('https://jsonplaceholder.typicode.com/posts');
+        const response = yield fetch('http://172.17.1.24:9003/deposit-service/auth/deposit-cards?clientId=2ca5c6c4-0ea1-47cd-81c2-b2ed691ba727');
         const data = yield response.json();
         res.json(data);
     }
     catch (err) {
         throw new Error();
     }
+}));
+app.get('/api/posts', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = yield response.json();
+        res.json(data);
+    }
+    catch (err) { }
 }));
 app.get('/api/posts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -56,28 +64,15 @@ app.get('/api/posts/:id/comments', (req, res) => __awaiter(void 0, void 0, void 
         throw new Error();
     }
 }));
-app.post('/api/posts/:id/comments', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/api/posts/:id/comments', (req, res) => {
     try {
-        const postId = req.params.id;
         const data = req.body;
-        const response = yield fetch(`https://jsonplaceholder.typicode.com/comments`, {
-            method: 'POST',
-            body: JSON.stringify({
-                postId,
-                name: 'Test User',
-                email: 'test@gmail.com',
-                body: data,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        });
-        res.status(201).json(response);
+        res.send(JSON.stringify(data));
     }
     catch (err) {
         throw new Error();
     }
-}));
+});
 app.get('/api/users', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield fetch(`https://jsonplaceholder.typicode.com/users`);

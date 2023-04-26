@@ -1,15 +1,20 @@
 export default async function postComment(postId: string, comment: string) {
-  const res = await fetch(
-    `http://localhost:8080/api/posts/${postId}/comments`,
+  const response = await fetch(
+    'https://jsonplaceholder.typicode.com/comments',
     {
       method: 'POST',
-      body: JSON.stringify(comment),
+      body: JSON.stringify({
+        postId,
+        id: 1,
+        name: 'Test Name',
+        email: 'Test@mail.com',
+        body: comment,
+      }),
       headers: {
-        'Content-Type': 'application/json',
+        'Content-type': 'application/json; charset=UTF-8',
       },
     },
   )
-
-  if (!res.ok) throw new Error('Failed to fetch')
-  return res.json()
+  if (!response.ok) throw new Error('Failed to fetch')
+  return response.json()
 }

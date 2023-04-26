@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 
-import Link from 'next/link'
 import getAllPosts from 'lib/getAllPosts'
 import Posts from 'src/components/Posts'
+import BackArrowLink from '@src/components/BackArrowLink'
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<Post[]>(null)
@@ -23,10 +23,7 @@ const PostsPage = () => {
 
   return (
     <section>
-      <p>
-        <Link href="/">Back to Home Page</Link>
-      </p>
-      <br />
+      <BackArrowLink link="/" />
       <Posts postsList={posts} />
     </section>
   )

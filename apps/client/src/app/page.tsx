@@ -10,14 +10,18 @@ const Home = () => (
       <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
         <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-            Приложение
+            Lorem Ipsum App
           </h2>
           <p className="mb-4">
-            We are strategists, designers and developers. Innovators and problem
-            solvers. Small enough to be simple and quick, but big enough to
-            deliver the scope you want at the pace you need. Small enough to be
-            simple and quick, but big enough to deliver the scope you want at
-            the pace you need.
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4 mt-8">
