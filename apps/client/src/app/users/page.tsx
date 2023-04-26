@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 
 import getAllUsers from 'lib/getAllUsers'
-import Link from 'next/link'
 import Users from 'src/components/Users'
+import BackArrowLink from '@src/components/BackArrowLink'
 
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>(null)
@@ -13,7 +13,6 @@ const UsersPage = () => {
     const usersData = await Promise.resolve(getAllUsers())
     setUsers(usersData)
   }
-
   useEffect(() => {
     fetchData()
   }, [])
@@ -22,10 +21,7 @@ const UsersPage = () => {
 
   return (
     <section>
-      <p>
-        <Link href="/">Back to Home Page</Link>
-      </p>
-      <br />
+      <BackArrowLink link="/" />
       <Users usersData={users} />
     </section>
   )
