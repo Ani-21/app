@@ -8,7 +8,7 @@ const TopArrowLink = ({ onClick }: TopArrowLinkProps) => (
     type="button"
     data-mdb-ripple="true"
     data-mdb-ripple-color="light"
-    className="none fixed inline-block p-3 bg-secondary text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-primary hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
+    className="none fixed inline-block p-3 bg-secondary text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-primary hover:shadow-lg focus:bg-primary focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
   >
     <svg
       aria-hidden="true"

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import getAllUsers from 'lib/getAllUsers'
 import Users from 'src/components/Users'
 import BackArrowLink from '@src/components/BackArrowLink'
+import Spinner from '@src/components/Spinner'
 
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>(null)
@@ -17,7 +18,7 @@ const UsersPage = () => {
     fetchData()
   }, [])
 
-  if (!users) return <p>Loading ... </p>
+  if (!users) return <Spinner />
 
   return (
     <section>

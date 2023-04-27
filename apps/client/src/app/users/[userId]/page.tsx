@@ -7,6 +7,7 @@ import getUserPosts from 'lib/getUserPosts'
 import Posts from '@src/components/Posts'
 import UserDetailsCard from '@src/components/cards/UserDetails'
 import BackArrowLink from '@src/components/BackArrowLink'
+import Spinner from '@src/components/Spinner'
 
 type Params = {
   params: {
@@ -30,7 +31,7 @@ const User = ({ params: { userId } }: Params) => {
     fetchData()
   }, [userId])
 
-  if (!user) return <p>Loading ... </p>
+  if (!user) return <Spinner />
 
   return (
     <article

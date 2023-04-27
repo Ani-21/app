@@ -17,7 +17,9 @@ module.exports = {
       main: '#6497b1',
       light: '#b3cde0',
     },
-    extend: {},
+    extend: {
+      animation: ['group-hover'],
+    },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 }

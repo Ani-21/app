@@ -4,7 +4,7 @@ import Link from 'next/link'
 import LogoIcon from './icons/Logo'
 
 const Navbar = () => (
-  <header className="bg-light flex justify-around items-center py-[25px] text-white">
+  <header className="bg-dark flex justify-around items-center py-[25px] text-white">
     <Link href="/">
       <div className="flex gap-3 cursor-pointer">
         <LogoIcon />
