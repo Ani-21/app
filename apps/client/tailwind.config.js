@@ -10,13 +10,16 @@ module.exports = {
   ],
   theme: {
     colors: {
+      while: '#fff',
       dark: '#011f4b',
       primary: '#03396c',
       secondary: '#005b96',
       main: '#6497b1',
       light: '#b3cde0',
     },
-    extend: {},
+    extend: {
+      animation: ['group-hover'],
+    },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')],
 }

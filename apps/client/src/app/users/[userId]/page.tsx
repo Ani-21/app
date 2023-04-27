@@ -4,11 +4,10 @@ import { useState, useEffect } from 'react'
 
 import getUser from 'lib/getUser'
 import getUserPosts from 'lib/getUserPosts'
-import Link from 'next/link'
 import Posts from '@src/components/Posts'
-import LocationIcon from '@src/components/icons/Location'
-import MailIcon from '@src/components/icons/Mail'
-import TeamIcon from '@src/components/icons/Team'
+import UserDetailsCard from '@src/components/cards/UserDetails'
+import BackArrowLink from '@src/components/BackArrowLink'
+import Spinner from '@src/components/Spinner'
 
 type Params = {
   params: {
@@ -32,31 +31,21 @@ const User = ({ params: { userId } }: Params) => {
     fetchData()
   }, [userId])
 
-  if (!user) return <p>Loading ... </p>
+  if (!user) return <Spinner />
 
   return (
     <article
-      className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden my-4"
+      className="max-w-sm rounded-lg overflow-hidden my-4"
       key={user?.id}
     >
-      <Link href="/users">Back to users</Link>
-      <div className="py-4 px-6">
-        <h1 className="text-2xl font-semibold text-gray-800">{user.name}</h1>
-        <p className="py-2 text-lg text-gray-700">{user.website}</p>
-        <div className="flex items-center mt-4 text-gray-700">
-          <TeamIcon />
-          <h1 className="px-2 text-sm">{user.company.name}</h1>
-        </div>
-        <div className="flex items-center mt-4 text-gray-700">
-          <LocationIcon />
-          <h1 className="px-2 text-sm">{user.address.city}</h1>
-        </div>
-        <div className="flex items-center mt-4 text-gray-700">
-          <MailIcon />
-          <h1 className="px-2 text-sm">{user.email}</h1>
-        </div>
-      </div>
-
+      <BackArrowLink link="users" />
+      <UserDetailsCard
+        name={user.name}
+        website={user.website}
+        company={user.company.name}
+        city={user.address.city}
+        email={user.name}
+      />
       <Posts postsList={userPosts} />
     </article>
   )

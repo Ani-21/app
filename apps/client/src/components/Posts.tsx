@@ -3,12 +3,14 @@ import PostCard from './cards/Post'
 type PostListProps = {
   postsList: Post[]
 }
-const Post = ({ postsList }: PostListProps) => (
-  <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
-    {postsList.map(post => (
-      <PostCard post={post} />
-    ))}
-  </ul>
+const Posts = ({ postsList }: PostListProps) => (
+  <section className="py-8 lg:py-16">
+    <ul className="max-w-md divide-y divide-gray-200">
+      {postsList.map(post => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </ul>
+  </section>
 )
 
-export default Post
+export default Posts
