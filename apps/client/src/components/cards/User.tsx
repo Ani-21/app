@@ -13,15 +13,11 @@ const UserCard = ({ user }: UserCardProps) => (
       </div>
       <div className="flex-1 min-w-0">
         <Link href={`/users/${user.id}`}>
-          <p className="text-sm font-medium text-gray-900 truncate">
-            {user.username}
-          </p>
+          <p className="text-sm font-medium truncate">{user.username}</p>
         </Link>
-        <p className="text-sm text-gray-500 truncate">{user.email}</p>
+        <p className="text-sm truncate">{user.email}</p>
       </div>
-      <div className="inline-flex items-center text-base font-semibold text-gray-900">
-        {' '}
-      </div>
+      <div className="inline-flex items-center text-base font-semibold "> </div>
     </div>
   </li>
 )

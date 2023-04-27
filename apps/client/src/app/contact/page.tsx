@@ -2,7 +2,7 @@
 
 const ContactPage = () => (
   <div className="mx-5">
-    <div className="bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl text-white p-8 text-center h-72 max-w-sm mx-auto">
+    <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl text-white p-8 text-center h-72 max-w-sm mx-auto">
       <h1 className="text-3xl mb-3">Contact me</h1>
       <p className="text-lg">
         You can contact me whenever you need help or just curious about

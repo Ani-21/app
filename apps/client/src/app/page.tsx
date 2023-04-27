@@ -8,7 +8,7 @@ const Home = () => (
   <main className={inter.className}>
     <section className="">
       <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-        <div className="font-light text-gray-500 sm:text-lg">
+        <div className="font-light text-black sm:text-lg">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold">
             Lorem Ipsum App
           </h2>
@@ -27,20 +27,20 @@ const Home = () => (
         <div className="grid grid-cols-2 gap-4 mt-8">
           <Link href="/posts">
             <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight">
                 Go To Posts
               </h5>
-              <p className="font-normal text-gray-700">
+              <p className="font-normal ">
                 Explore all posts, comments and publish your own
               </p>
             </div>
           </Link>
           <Link href="/users">
             <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight">
                 Go To Users
               </h5>
-              <p className="font-normal text-gray-700">
+              <p className="font-normal ">
                 Explore users individual posts and create more
               </p>
             </div>

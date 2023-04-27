@@ -8,6 +8,7 @@ import getAllPosts from 'lib/getAllPosts'
 import Posts from 'src/components/Posts'
 import BackArrowLink from '@src/components/BackArrowLink'
 import TopArrowLink from '@src/components/TopArrowLink'
+import Spinner from '@src/components/Spinner'
 
 const PostsPage = () => {
   const [posts, setPosts] = useState<Post[]>(null)
@@ -35,7 +36,7 @@ const PostsPage = () => {
 
     return () => window.removeEventListener('scroll', handleScrollBtn)
   }, [])
-  if (!posts) return <p>Loading ... </p>
+  if (!posts) return <Spinner />
 
   return (
     <section>
