@@ -1,4 +1,3 @@
-import React from 'react'
 import LocationIcon from '../icons/Location'
 import MailIcon from '../icons/Mail'
 import TeamIcon from '../icons/Team'

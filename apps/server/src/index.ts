@@ -51,15 +51,6 @@ app.get('/api/posts/:id/comments', async (req, res) => {
   }
 })
 
-app.post('/api/posts/:id/comments', (req, res) => {
-  try {
-    const data: IComment = req.body
-    res.send(JSON.stringify(data))
-  } catch (err) {
-    throw new Error()
-  }
-})
-
 app.get('/api/users', async (req, res) => {
   try {
     const response = await fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -107,6 +98,11 @@ app.get('/api/comments', async (req, res) => {
   } catch (err) {
     throw new Error()
   }
+})
+
+app.get('/api/comments', async (req, res) => {
+  const data = req.body
+  return res.send(JSON.stringify(data))
 })
 
 app.listen(PORT)
