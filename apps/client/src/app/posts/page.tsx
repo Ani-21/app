@@ -35,7 +35,6 @@ const PostsPage = () => {
 
     return () => window.removeEventListener('scroll', handleScrollBtn)
   }, [])
-
   if (!posts) return <p>Loading ... </p>
 
   return (

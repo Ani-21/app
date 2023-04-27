@@ -54,18 +54,18 @@ const Post = ({ params: { postId } }: Params) => {
       <PostCard post={post} />
       <Comments comments={comments} />
       <form className="mb-6" onSubmit={handleSubmit}>
-        <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
           <textarea
             id="comment"
             ref={inputRef}
-            className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none bg-main dark:text-white dark:placeholder-gray-400 dark:bg-main"
+            className="px-0 w-full text-sm border-0 focus:ring-0 focus:outline-none bg-main text-white"
             placeholder="Write a comment..."
             required
           />
         </div>
         <button
           type="submit"
-          className="inline-flex items-center py-2.5 px-4 mx-4 text-xs font-medium text-center text-white bg-light rounded-lg focus:ring-4 focus:ring-light dark:focus:ring-secondary hover:bg-secondary"
+          className="inline-flex items-center py-2.5 px-4 mx-4 text-xs font-medium text-center text-white bg-light rounded-lg focus:ring-4 focus:ring-light hover:bg-secondary"
         >
           Post comment
         </button>
